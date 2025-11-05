@@ -1,9 +1,9 @@
-# **Career Page Builder**
+# Career Page Builder
 
 A full-stack web application that allows recruiters to easily create and manage their company’s career pages.  
 It provides recruiters the flexibility to customize branding, add job listings, and preview how their public careers page will look before publishing.
 
-# **Features**
+# Features
 - Upload and import job data from Excel
 - Manage company details and branding
 - Preview career page before publishing
@@ -28,7 +28,7 @@ It provides recruiters the flexibility to customize branding, add job listings, 
 ## How to Run the Project
 
 ### 1. Clone the Repository
-git clone https://github.com/Bipasha02/CareersPageBuilder.git
+git clone https://github.com/Bipasha02/CareersPageBuilder.git  
 cd CareersPageBuilder
 
 ### 2. Setup the Backend (FastAPI)
