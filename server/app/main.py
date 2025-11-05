@@ -27,7 +27,7 @@ models.Base.metadata.create_all(bind=database.engine)
 # -----------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # replace with your frontend origin if needed
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -149,14 +149,14 @@ def import_seed(db: Session = Depends(get_db)):
     raw = json.loads(DATA_PATH.read_text(encoding="utf-8"))
 
     try:
-        # 1️⃣ Clear previous data
+        # Clears previous data
         from sqlalchemy import text
         with db.begin():
             db.execute(text("DELETE FROM job"))
             db.execute(text("DELETE FROM section"))
             db.execute(text("DELETE FROM company"))
 
-        # 2️⃣ Add all companies first
+        # Add all companies first
         company_map = {}
         for idx, c in enumerate(raw.get("companies", []), start=1):
             cid = c.get("id") or f"co_{idx}"
@@ -172,12 +172,12 @@ def import_seed(db: Session = Depends(get_db)):
                 description=c.get("description"),
                 theme_color=c.get("theme_color") or "#0a66c2",
             )
-            db.add(comp)  # Use add(), not merge()
+            db.add(comp)  
             company_map[c_slug] = cid
 
-        db.commit()  # Commit all companies together
+        db.commit() 
 
-        # 3️⃣ Add sections
+        # sections
         for idx, s in enumerate(raw.get("sections", []), start=1):
             sec = Section(
                 id=s.get("id") or f"sec_{idx}",
@@ -190,7 +190,7 @@ def import_seed(db: Session = Depends(get_db)):
             )
             db.add(sec)
 
-        # 4️⃣ Add jobs
+        # add jobs
         for idx, j in enumerate(raw.get("jobs", []), start=1):
             job = Job(
                 id=j.get("id") or f"job_{idx}",
@@ -205,7 +205,7 @@ def import_seed(db: Session = Depends(get_db)):
             )
             db.add(job)
 
-        db.commit()  # Commit sections and jobs together
+        db.commit() 
         return {"ok": True, "message": "Seed imported successfully"}
     except Exception as ex:
         db.rollback()

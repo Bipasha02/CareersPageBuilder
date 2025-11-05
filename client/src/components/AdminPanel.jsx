@@ -40,7 +40,7 @@ export default function AdminPanel({ onImported }) {
     try {
       await axios.post(
         `${API}/api/save-features`,
-        { company_id: COMPANY_ID, ...features }, // ✅ include company_id
+        { company_id: COMPANY_ID, ...features }, 
         {
           headers: {
             "Content-Type": "application/json",

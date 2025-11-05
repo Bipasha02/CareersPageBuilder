@@ -29,7 +29,6 @@ export default function SectionsList({ companyId }) {
 
     setSections(updatedSections);
 
-    // Optional: persist new order in backend
     try {
       await axios.put(`${API}/api/sections/reorder`, {
         company_id: companyId,
