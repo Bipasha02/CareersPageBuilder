@@ -1,0 +1,70 @@
+Unzip careers_ai_portal.zip. The repo contains two folders: server/ and client/ and data/seed.json (converted from the uploaded spreadsheet).
+
+Backend (FastAPI):
+1. cd server
+2. python -m venv .venv
+3. source .venv/bin/activate  # Windows: .venv\Scripts\activate
+4. pip install -r requirements.txt
+5. uvicorn app.main:app --reload --port 8000
+6. POST http://localhost:8000/api/import-seed  (curl or visit via browser client admin)
+
+Frontend (Vite):
+1. cd client
+2. npm install
+3. npm run dev
+4. Open http://localhost:5173
+
+Notes:
+- Use the Admin panel to upload a new .xlsx or import existing seed.json to populate the DB.
+- The summarizer endpoint returns a short excerpt (mock AI) for demo purposes.
+
+
+careers-ai-portal/
+│
+├── client/                         # React Frontend
+│   ├── node_modules/
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   │
+│   └── src/
+│       ├── App.jsx
+│       ├── Main.jsx
+│       ├── styles.css
+│       │
+│       ├── components/
+│       │   ├── AdminPanel.jsx
+│       │   ├── JobForm.jsx
+│       │   ├── JobsList.jsx
+│       │   ├── RecruiterDashboard.jsx
+│       │
+│       └── pages/
+│           ├── Recruiter.jsx
+│           └── RecruiterDashboard.jsx
+│
+├── data/
+│   └── seed.json                   # Dataset
+│
+└── server/                         # FastAPI Backend
+    ├── .venv/
+    │   ├── bin/
+    │   ├── include/
+    │   └── lib/
+    │
+    ├── app/
+    │   ├── __pycache__/
+    │   ├── __init__.py
+    │   ├── database.py
+    │   ├── main.py                 # FastAPI main entry
+    │   └── models.py
+    │
+    ├── data/
+    │   ├── seed.json
+    │   └── uploaded.xlsx
+    │
+    ├── jobs.db
+    ├── requirements.txt
+    └── tempCodeRunnerFile.py
