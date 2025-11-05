@@ -32,13 +32,13 @@ git clone https://github.com/Bipasha02/CareersPageBuilder.git
 cd CareersPageBuilder
 
 ### 2. Setup the Backend (FastAPI)
-cd server
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+cd server  
+python3 -m venv .venv  
+source .venv/bin/activate  
+pip install -r requirements.txt  
+uvicorn app.main:app --reload  
 
 ### 3. Setup the Frontend (React + Vite)
-cd ../client
-npm install
-npm run dev
+cd ../client  
+npm install  
+npm run dev  
