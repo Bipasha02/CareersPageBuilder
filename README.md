@@ -28,7 +28,7 @@ It provides recruiters the flexibility to customize branding, add job listings, 
 ## How to Run the Project
 
 ### 1. Clone the Repository
-git clone https://github.com/Bipasha02/CareersPageBuilder.git  
+git clone https://github.com/Bipasha02/CareersPageBuilder  
 cd CareersPageBuilder
 
 ### 2. Setup the Backend (FastAPI)
